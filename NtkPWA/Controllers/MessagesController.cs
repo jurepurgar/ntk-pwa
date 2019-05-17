@@ -20,14 +20,14 @@ namespace NtkPWA.Controllers
         [HttpGet]
         public IEnumerable<Message> Get()
         {
-            return null;
+            return Store.Messages.Reverse();
         }
 
         // GET: api/Messages/5
         [HttpGet("{id}", Name = "Get")]
-        public Message Get(int id)
+        public Message Get(Guid id)
         {
-            return new Message() { };
+            return Store.Messages.FirstOrDefault(x => x.Id == id);
         }
 
         // POST: api/Messages

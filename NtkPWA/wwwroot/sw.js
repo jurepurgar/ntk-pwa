@@ -31,10 +31,33 @@ self.addEventListener('activate', async () => {
     }
 });
 
-self.addEventListener('push', function (event) {
+self.addEventListener('push', async function (event) {
     if (event.data) {
         console.log('Push event!! ', event.data.text());
     } else {
         console.log('Push event but no data');
     }
-})
+
+    var clients = await self.clients.matchAll();
+
+    if (clients && clients.length > 0)
+    {
+        clients.forEach(client => {
+            client.postMessage({
+                client: "test",
+                message: "test"
+            });
+        });
+
+    } else {
+            showLocalNotification("test", "test");
+    }
+});
+
+
+function showLocalNotification(title, body) {
+    const options = {
+        body
+    };
+    this.registration.showNotification(title, options);
+}

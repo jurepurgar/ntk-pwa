@@ -18,6 +18,11 @@ document.querySelector('#show').addEventListener('click', () => {
 async function init() {
     await navigator.serviceWorker.register('sw.js');
     await window.Notification.requestPermission();
+    navigator.serviceWorker.addEventListener('message', event => {
+
+        console.log("Message from SW received: ", event);
+        //event.data.client;       
+    });
 }
 
 async function sendMessage() {
