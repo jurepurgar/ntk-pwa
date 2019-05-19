@@ -44,7 +44,6 @@ async function init() {
 async function loadMessages() {
     var res = await fetch('api/Messages');
     var messages = await res.json();
-    console.log('messages are: ', messages);
     messages.forEach(m => addMessage(m));
 }
 
