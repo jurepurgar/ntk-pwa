@@ -1,0 +1,31 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Segoe UI Regular", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+a, a:visited {
+    color: #A55EEA;
+}
+
+a:hover {
+    color: #B56EFA;
+}
+
+#headerDiv {
+    background: #231F20;
+    height: 85px;
+}
+
+#loadingDiv {
+    text-align: center;
+    font-size: 20px;
+}
+
+#chatDiv {
+    margin-top: 12px;
+}
+
+#contentDiv {
+    margin: 10px 5px;
+}

@@ -1,7 +1,7 @@
 ﻿var sender = null;
 
 function showDiv(name) {
-    document.getElementById("nameDiv").style.display = 'none';
+    document.getElementById("senderDiv").style.display = 'none';
     document.getElementById("loadingDiv").style.display = 'none';
     document.getElementById("mainDiv").style.display = 'none';
     document.getElementById(name).style.display = 'block';
@@ -10,21 +10,33 @@ function showDiv(name) {
 async function init() {
     showDiv('loadingDiv');
 
-    await window.Notification.requestPermission();
+    try {
+        await window.Notification.requestPermission();
 
-    var swRegistration = await navigator.serviceWorker.register('sw.js');
-    const applicationServerKey = await urlB64ToUint8Array('BED4o4WbZLiEwE7DRKRs8UeJho3wYe91U_VddfzMrd4YWQOQ0QBiE5_kd69Ti1n6QRXl14UPqLY-dqNQRC2OBZo');
-    const options = { applicationServerKey, userVisibleOnly: true };
-    const subscription = await swRegistration.pushManager.subscribe(options);
-    await saveSubscription(subscription);
+        await navigator.serviceWorker.register('sw.js');
+        let swRegistration = await navigator.serviceWorker.ready;
 
-    navigator.serviceWorker.addEventListener('message', event => {
-        console.log("Message from SW received: ", event);
-        var message = event.data;
-        addMessage(message);
-    });
+        const applicationServerKey = await urlB64ToUint8Array('BED4o4WbZLiEwE7DRKRs8UeJho3wYe91U_VddfzMrd4YWQOQ0QBiE5_kd69Ti1n6QRXl14UPqLY-dqNQRC2OBZo');
+        const options = { applicationServerKey, userVisibleOnly: true };
+        const subscription = await swRegistration.pushManager.subscribe(options);
+        await saveSubscription(subscription);
 
-    showDiv('nameDiv');
+        navigator.serviceWorker.addEventListener('message', event => {
+            var message = event.data;
+            addMessage(message);
+        });
+
+        let s = localStorage.getItem('sender');
+        if (s) {
+            setSender(s);
+        } else {
+            showDiv('senderDiv');
+        }
+    }
+    catch
+    {
+        document.getElementById('loadingDiv').innerText = "Error! Push features are not supported!";
+    }
 }
 
 async function urlB64ToUint8Array(base64String) {
@@ -64,9 +76,18 @@ async function sendMessage() {
     });
 }
 
-function setName() {
-    sender = document.getElementById("messageSender").value;
+function setSender(s) {
+    sender = s;
+    if (!s) {
+        sender = document.getElementById('messageSender').value;
+    }
+    document.getElementById('senderAnchor').innerText = sender;
+    localStorage.setItem("sender", sender);
     showDiv('mainDiv');
+}
+
+function changeSender() {
+    showDiv('senderDiv');
 }
 
 function addMessage(message) {

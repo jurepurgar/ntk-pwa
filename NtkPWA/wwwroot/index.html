@@ -2,40 +2,45 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title></title>
+        <title>NTK Chat</title>
+        <link href="styles.css" rel="stylesheet" />
     </head>
     <body>
-        <div>
-            NTK Chat
+        <div id="headerDiv">
+            <span><img src="header.png" /></span>
         </div>
 
-        <div id="loadingDiv">
-            Loading...
-        </div>
+        <div id="contentDiv">
 
-        <div id="nameDiv">
-            <label for="messageSender">Vnesite ime ki ga želite uporabljati v pogovoru:</label>
-            <br />
-            <input id="messageSender" name="messageSender" type="text" required />
-
-            <button onclick="setName()">V redu</button>
-        </div>
-
-        <div id="mainDiv">
-            <div>
-                <label for="messageText">Sporočilo:</label>
-                <input id="messageText" name="messageText" type="text" required />
-
-                <button onclick="sendMessage();">Pošlji</button>
+            <div id="loadingDiv">
+                Loading...
             </div>
 
-            <div>
-                <h3>Messages</h3>
+            <div id="senderDiv">
+                <label for="messageSender">Vnesite ime ki ga želite uporabljati v pogovoru:</label>
+                <br />
+                <input id="messageSender" name="messageSender" type="text" required />
 
-                <div id="messagesDiv">
+                <button onclick="setSender()">V redu</button>
+            </div>
 
+            <div id="mainDiv">
+                <div>
+                    <label for="messageText"><a id="senderAnchor" href="javascript: changeSender()"></a>:</label>
+                    <input id="messageText" name="messageText" type="text" required />
 
+                    <button onclick="sendMessage();">Pošlji</button>
                 </div>
+
+                <div id="chatDiv">
+                    <h4>Sporočila</h4>
+
+                    <div id="messagesDiv">
+
+
+                    </div>
+                </div>
+
             </div>
 
         </div>
