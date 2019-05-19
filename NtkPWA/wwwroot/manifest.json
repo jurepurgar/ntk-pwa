@@ -1,0 +1,113 @@
+{
+  "dir": "ltr",
+  "lang": "sl",
+  "name": "NTK Chat",
+  "scope": "/",
+  "display": "standalone",
+  "start_url": "https://ntkpwa.azurewebsites.net/",
+  "short_name": "NTK Chat",
+  "theme_color": "transparent",
+  "description": "",
+  "orientation": "any",
+  "background_color": "transparent",
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/images/f768dc1e-67d3-60ea-31fb-aa43bad2686b.webPlatform.png",
+      "sizes": "44x44",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/81cab2a1-2ddb-4cd8-6479-c934ab5ad4a4.webPlatform.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/f4d5326d-afb4-70ed-976c-165c4319e2f4.webPlatform.png",
+      "sizes": "1240x600",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/c9d8899c-8124-c5c6-544d-86362056ba91.webPlatform.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/5fa7d226-3e01-271e-bbb4-10c52beb9b0f.webPlatform.png",
+      "sizes": "150x150",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/2e45e732-0019-c7b7-dfb9-e22ef2edb7ea.webPlatform.png",
+      "sizes": "88x88",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/e9e7a3d2-2225-5b6f-aa93-71b7e125ca70.webPlatform.png",
+      "sizes": "24x24",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/8b9a0d70-0479-35bf-784b-95a762ff461c.webPlatform.png",
+      "sizes": "50x50",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/abfadf1a-1444-7410-f797-efe0518ed694.webPlatform.png",
+      "sizes": "620x300",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/64a03971-4f1a-cf5c-0eee-bcc45ca2acf0.webPlatform.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/f4004721-60b6-1601-424c-57a8765cf30a.webPlatform.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/89d8ffdc-565a-d141-86d6-1511010e1e08.webPlatform.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/13964348-db0d-cc8f-de29-0f7f1ee0f61c.webPlatform.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/8cc496b3-80e5-7c75-00a6-f74dad978c31.webPlatform.png",
+      "sizes": "36x36",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/85879d7a-f769-4590-483f-6a70763a13ba.webPlatform.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/b38c16eb-28ef-defc-d7be-1fcafd841578.webPlatform.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/eb2c368e-2415-6416-04a7-c5d0e00bcf38.webPlatform.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/2c9496ac-3434-26db-a2db-b54797b03771.webPlatform.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/69ef0d12-e883-a534-fa5b-8bf4bd85e868.webPlatform.png",
+      "sizes": "76x76",
+      "type": "image/png"
+    }
+  ],
+  "generated": true
+}
