@@ -5,24 +5,19 @@ self.addEventListener('push', async function (event) {
 
 async function onPush(event) {
     var message = event.data.json();
-    let silent = false;
 
     var clients = await self.clients.matchAll();
     if (clients && clients.length > 0) {
         clients.forEach(client => {
             client.postMessage(message);
-            silent = true;
         });
-    }
+    } else {
+        await this.registration.showNotification(message.Sender, {
+            body: message.Text
+        });
 
-    await this.registration.showNotification(message.Sender, {
-        body: message.Text,
-        silent: silent
-    });
-
-    
+    } 
 }
-
 
 //offline
 const CACHE = "offline-cache";

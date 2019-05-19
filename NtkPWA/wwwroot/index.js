@@ -37,6 +37,15 @@ async function init() {
     {
         document.getElementById('loadingDiv').innerText = "Error! Push features are not supported!";
     }
+
+    await loadMessages();
+}
+
+async function loadMessages() {
+    var res = await fetch('api/Messages');
+    var messages = await res.json();
+    console.log('messages are: ', messages);
+    messages.forEach(m => addMessage(m));
 }
 
 async function urlB64ToUint8Array(base64String) {
@@ -100,7 +109,7 @@ function changeSender() {
 
 function addMessage(message) {
     var messagesDiv = document.getElementById('messagesDiv');
-    var msg = '<div><strong>' + message.Sender + ': </strong>' + message.Text + '</div>';
+    var msg = '<div><strong>' + message.sender + ': </strong>' + message.text + '</div>';
     messagesDiv.insertAdjacentHTML('beforebegin', msg);
 }
 

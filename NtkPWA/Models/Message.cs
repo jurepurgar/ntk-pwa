@@ -7,10 +7,10 @@ namespace NtkPWA
 {
     public class Message
     {
-        public Guid Id { get; set; }
+        public Guid id { get; set; }
 
-        public string Sender { get; set; }
+        public string sender { get; set; }
 
-        public string Text { get; set; }
+        public string text { get; set; }
     }
 }

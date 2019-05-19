@@ -28,7 +28,7 @@ namespace NtkPWA.Controllers
         [HttpGet("{id}", Name = "Get")]
         public Message Get(Guid id)
         {
-            return Store.Messages.FirstOrDefault(x => x.Id == id);
+            return Store.Messages.FirstOrDefault(x => x.id == id);
         }
 
         // POST: api/Messages
