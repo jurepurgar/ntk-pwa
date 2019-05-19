@@ -17,19 +17,21 @@
             </div>
 
             <div id="senderDiv">
-                <label for="messageSender">Vnesite ime ki ga želite uporabljati v pogovoru:</label>
-                <br />
-                <input id="messageSender" name="messageSender" type="text" required />
-
-                <button onclick="setSender()">V redu</button>
+                <form action="javascript: setSender()">
+                    <label for="messageSender">Vnesite ime ki ga želite uporabljati v pogovoru:</label>
+                    <br />
+                    <input id="messageSender" name="messageSender" type="text" required />
+                    <input type="submit" value="V redu" />
+                </form>
             </div>
 
             <div id="mainDiv">
                 <div>
-                    <label for="messageText"><a id="senderAnchor" href="javascript: changeSender()"></a>:</label>
-                    <input id="messageText" name="messageText" type="text" required />
-
-                    <button onclick="sendMessage();">Pošlji</button>
+                    <form action="javascript: sendMessage()">
+                        <label for="messageText"><a id="senderAnchor" href="javascript: changeSender()"></a>:</label>
+                        <input id="messageText" name="messageText" type="text" />
+                        <input type="submit" value="Pošlji" />
+                    </form>
                 </div>
 
                 <div id="chatDiv">

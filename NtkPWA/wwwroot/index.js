@@ -33,7 +33,7 @@ async function init() {
             showDiv('senderDiv');
         }
     }
-    catch
+    catch (error)
     {
         document.getElementById('loadingDiv').innerText = "Error! Push features are not supported!";
     }
@@ -61,11 +61,19 @@ async function saveSubscription(subscription) {
 }
 
 async function sendMessage() {
-    const text = document.getElementById("messageText").value;
+    const msgBox = document.getElementById("messageText");
+    const text = msgBox.value;
+
+    if (!text || text === '') {
+        return;
+    }
+
     var message = {
         "sender": sender,
         "text": text
     };
+
+    msgBox.value = '';
 
     await fetch('api/Messages', {
         method: 'post',
