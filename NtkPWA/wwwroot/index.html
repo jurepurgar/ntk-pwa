@@ -1,33 +1,45 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <script src="index.js" ></script>
-    <title></title>
-</head>
-<body>
-    <div>
-        NTK Chat
-    </div>
-
-    <div>
-        <label for="messageSender">Your name:</label>
-        <input id="messageSender" name="messageSender" type="text" required />
-
-        <label for="messageText">Message:</label>
-        <input id="messageText" name="messageText" type="text" required />
-
-        <button onclick="sendMessage()" >Send</button>
-    </div>
-
-    <div>
-        <h3>Messages</h3>
-
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
         <div>
+            NTK Chat
+        </div>
 
+        <div id="loadingDiv">
+            Loading...
+        </div>
+
+        <div id="nameDiv">
+            <label for="messageSender">Vnesite ime ki ga želite uporabljati v pogovoru:</label>
+            <br />
+            <input id="messageSender" name="messageSender" type="text" required />
+
+            <button onclick="setName()">V redu</button>
+        </div>
+
+        <div id="mainDiv">
+            <div>
+                <label for="messageText">Sporočilo:</label>
+                <input id="messageText" name="messageText" type="text" required />
+
+                <button onclick="sendMessage();">Pošlji</button>
+            </div>
+
+            <div>
+                <h3>Messages</h3>
+
+                <div id="messagesDiv">
+
+
+                </div>
+            </div>
 
         </div>
-    </div>
 
-</body>
+        <script src="index.js"></script>
+    </body>
 </html>

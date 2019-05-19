@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using WebPush;
 
 namespace NtkPWA.Controllers
@@ -46,7 +47,8 @@ namespace NtkPWA.Controllers
         private async Task NotifySubscriber(Message message, Subscription subscription)
         {
             var sub = new PushSubscription(subscription.Endpoint, subscription.Keys.P256Dh, subscription.Keys.Auth);
-            var payload = "test";
+            var payload = JsonConvert.SerializeObject(message);
+
             try
             {
                 await _pushClient.SendNotificationAsync(sub, payload, _vapid);
