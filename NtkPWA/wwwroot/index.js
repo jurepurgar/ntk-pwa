@@ -28,7 +28,7 @@ async function init() {
     }
     catch (error)
     {
-        document.getElementById('loadingDiv').innerText = "Error! Push features are not supported!";
+        document.getElementById('loadingDiv').innerText = "Error! Push features are not supported or there is no connection!";
     }
 
     await loadMessages();
