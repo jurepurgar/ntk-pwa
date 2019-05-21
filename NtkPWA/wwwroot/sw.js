@@ -14,11 +14,8 @@ async function onPush(event) {
         await this.registration.showNotification(message.sender, {
             body: message.text
         });
-
     } 
 }
-
-
 
 // offline
 const CACHE = "offline-cache";

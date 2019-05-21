@@ -1,12 +1,5 @@
 ﻿var sender = null;
 
-function showDiv(name) {
-    document.getElementById("senderDiv").style.display = 'none';
-    document.getElementById("loadingDiv").style.display = 'none';
-    document.getElementById("mainDiv").style.display = 'none';
-    document.getElementById(name).style.display = 'block';
-}
-
 async function init() {
     showDiv('loadingDiv');
 
@@ -47,16 +40,6 @@ async function loadMessages() {
     messages.forEach(m => addMessage(m));
 }
 
-async function urlB64ToUint8Array(base64String) {
-    const padding = '='.repeat((4 - base64String.length % 4) % 4);
-    const base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/');
-    const rawData = atob(base64);
-    const outputArray = new Uint8Array(rawData.length);
-    for (let i = 0; i < rawData.length; ++i) {
-        outputArray[i] = rawData.charCodeAt(i);
-    }
-    return outputArray;
-}
 
 async function saveSubscription(subscription) {
     await fetch('api/Subscriptions', {
@@ -106,10 +89,31 @@ function changeSender() {
     showDiv('senderDiv');
 }
 
+
+init();
+
+//helpers
+
+function showDiv(name) {
+    document.getElementById("senderDiv").style.display = 'none';
+    document.getElementById("loadingDiv").style.display = 'none';
+    document.getElementById("mainDiv").style.display = 'none';
+    document.getElementById(name).style.display = 'block';
+}
+
 function addMessage(message) {
     var messagesDiv = document.getElementById('messagesDiv');
     var msg = '<div><strong>' + message.sender + ': </strong>' + message.text + '</div>';
     messagesDiv.insertAdjacentHTML('beforebegin', msg);
 }
 
-init();
+async function urlB64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding).replace(/\-/g, '+').replace(/_/g, '/');
+    const rawData = atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+    for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+}
