@@ -1,5 +1,4 @@
-﻿
-self.addEventListener('push', async function (event) {
+﻿self.addEventListener('push', async function (event) {
     event.waitUntil(onPush(event));
 });
 
@@ -12,8 +11,8 @@ async function onPush(event) {
             client.postMessage(message);
         });
     } else {
-        await this.registration.showNotification(message.Sender, {
-            body: message.Text
+        await this.registration.showNotification(message.sender, {
+            body: message.text
         });
 
     } 
