@@ -18,7 +18,9 @@ async function onPush(event) {
     } 
 }
 
-//offline
+
+
+// offline
 const CACHE = "offline-cache";
 
 // If any fetch fails, it will look for the request in the cache and serve it from there first
